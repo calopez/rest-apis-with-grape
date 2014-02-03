@@ -25,4 +25,11 @@ describe "Upload a file" do
     last_response.status.must_equal 201
     last_response.body.must_include "My First Zip file"
   end
+
+  it "lists all files" do
+    get "files"
+
+    last_response.status.must_equal 200
+    last_response.body.must_include "My First Zip file"
+  end
 end
