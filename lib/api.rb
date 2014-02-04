@@ -18,5 +18,14 @@ module API
         @file.save
       end
     end
+
+    resource :users do
+      post "/", rabl: "users/item" do
+        password = params[:user].delete :password
+        @user = User.new params[:user]
+        @user.password = password
+        @user.save
+      end
+    end
   end
 end
