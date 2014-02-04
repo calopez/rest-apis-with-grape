@@ -1,6 +1,6 @@
 require "test_helper"
 require "env"
-require "api"
+require "api/v1"
 require "asset_uploader"
 require "models/asset"
 

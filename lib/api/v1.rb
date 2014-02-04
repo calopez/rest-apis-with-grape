@@ -1,5 +1,5 @@
 module API
-  class App < Grape::API
+  class AppV1 < Grape::API
     version "v1", using: :path
 
     use Rack::Config do |env|
