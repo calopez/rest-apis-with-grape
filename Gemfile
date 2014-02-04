@@ -5,6 +5,7 @@ gem "carrierwave"
 gem "carrierwave-sequel", require: "carrierwave/sequel"
 gem "sequel"
 gem "sqlite3"
+gem "pry"
 
 group :test do
   gem "minitest"
