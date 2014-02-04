@@ -9,8 +9,8 @@ module API
     default_format :json
 
     resource :files do
-      get do
-        Asset.all
+      get '/', rabl: "assets/collection" do
+        @files = Asset.all
       end
 
       post '/', rabl: "assets/item" do
