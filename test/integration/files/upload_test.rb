@@ -11,35 +11,33 @@ describe "Upload a file" do
     API::App
   end
 
-  describe "uploading a file" do
-    before do
-      # Given i have a file I want to upload
-      file_path = fixture_path "zip.zip"
+  before do
+    # Given i have a file I want to upload
+    file_path = fixture_path "zip.zip"
 
-      # When i upload it
-      post "files", file: {
-        title: "My First Zip file",
-        file: Rack::Test::UploadedFile.new(file_path, "application/zip", true)
-      }
-    end
+    # When i upload it
+    post "v1/files", file: {
+      title: "My First Zip file",
+      file: Rack::Test::UploadedFile.new(file_path, "application/zip", true)
+    }
+  end
 
-    # Then i should have a title and url in JSON
+  # Then i should have a title and url in JSON
 
-    it "is successful" do
-      last_response.status.must_equal 201
-    end
+  it "is successful" do
+    last_response.status.must_equal 201
+  end
 
-    it "is JSON" do
-      last_response.content_type.must_equal "application/json"
-    end
+  it "is JSON" do
+    last_response.content_type.must_equal "application/json"
+  end
 
-    it "shows the title" do
-      last_response.body.must_include "My First Zip file"
-    end
+  it "shows the title" do
+    last_response.body.must_include "My First Zip file"
+  end
 
-    it "shows the filename" do
-      last_response.body.must_include "zip.zip"
-    end
+  it "shows the filename" do
+    last_response.body.must_include "zip.zip"
   end
 
   it "lists all files" do

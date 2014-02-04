@@ -13,7 +13,7 @@ describe "Signing up" do
   include Rack::Test::Methods
 
   before do
-    post "users", { user: {
+    post "v1/users", { user: {
       handler:  "josemotanet",
       email:    "jose@josemota.net",
       password: "tutsplusPW" }
