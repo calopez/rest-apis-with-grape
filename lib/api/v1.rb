@@ -19,6 +19,13 @@ module API
         @file = Asset.new params[:file]
         @file.save
       end
+
+      get '/:id/download' do
+        file = Asset[params[:id]]
+        path = file.file_url.gsub("public/","")
+
+        redirect path
+      end
     end
 
     resource :users do

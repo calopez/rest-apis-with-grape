@@ -30,6 +30,7 @@ module API
         @file = Asset.new params[:file]
         current_user.add_asset @file
       end
+
     end
 
     resource :users do
