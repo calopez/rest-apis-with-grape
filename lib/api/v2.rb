@@ -10,7 +10,7 @@ module API
 
     http_basic do |handler, password|
       @@user = User.where(handler: handler).first
-      @@user.authorized? password
+      @@user.authorized? password rescue false
     end
 
     use Rack::Config do |env|

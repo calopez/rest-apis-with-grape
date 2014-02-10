@@ -13,6 +13,17 @@ describe "Upload a file" do
   end
 
   describe "unauthorized" do
+    it "doesn't authorize unknown users" do
+      file_path = fixture_path "zip.zip"
+
+      authorize "john", "doe"
+      post "files", file: {
+        title: "My First Zip file",
+        file: Rack::Test::UploadedFile.new(file_path, "application/zip", true)
+      }, "Accept-Version" => "v2"
+
+      last_response.status.must_equal 401
+    end
   end
 
   describe "when authorized" do
