@@ -26,6 +26,7 @@ describe "Upload a file" do
 
   # Then i should be able to download it
   it "is successful" do
+    skip
     path = "/v1/files/#@id/download"
     get path
 
@@ -33,6 +34,7 @@ describe "Upload a file" do
   end
 
   it "downloads the file" do
+    skip
     path = "/v1/files/#@id/download"
     get path
     follow_redirect!
