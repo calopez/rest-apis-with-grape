@@ -6,6 +6,12 @@ module API
       root: "public"
 
     resource :files do
+      params do
+        requires :id, type: Integer
+      end
+      get "/:id" do
+      end
+
       post "/:id/download" do
         asset = Asset[params[:id]]
         if asset.can_be_downloaded_by? params[:receiver]
